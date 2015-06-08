@@ -5,7 +5,7 @@ import io.advantageous.qbit.service.ServiceQueue;
 
 import java.util.List;
 
-import static io.advantageous.boon.Lists.list;
+import static io.advantageous.boon.core.Lists.list;
 import static io.advantageous.qbit.service.ServiceBuilder.serviceBuilder;
 import static io.advantageous.qbit.service.ServiceProxyUtils.flushServiceProxy;
 import static java.lang.System.out;
@@ -25,7 +25,7 @@ public class PrototypeMain {
         /* Wrap the service in a queue. */
         ServiceQueue recommendationServiceQueue = serviceBuilder()
                 .setServiceObject(recommendationServiceImpl)
-                .build().start().startCallBackHandler();
+                .build().startServiceQueue().startCallBackHandler();
 
         /* Create a proxy interface for the service. */
         RecommendationServiceClient recommendationServiceClient =

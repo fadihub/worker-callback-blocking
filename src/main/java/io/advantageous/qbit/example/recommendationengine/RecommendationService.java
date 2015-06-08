@@ -3,15 +3,15 @@ package io.advantageous.qbit.example.recommendationengine;
 
 
 
-import io.advantageous.boon.Lists;
-import io.advantageous.boon.cache.SimpleCache;
+import io.advantageous.boon.core.Lists;
+import io.advantageous.boon.primitive.SimpleLRUCache;
 import java.util.List;
 
 public class RecommendationService {
 
 
-    private final SimpleCache<String, User> users =
-            new SimpleCache<>(10_000);
+    private final SimpleLRUCache<String, User> users =
+            new SimpleLRUCache<>(10_000);
 
     public List<Recommendation> recommend(final String userName) {
         System.out.println("recommend called");
